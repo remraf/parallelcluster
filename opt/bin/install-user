@@ -11,8 +11,8 @@
 GID=2000                        # group id
 GROUP=tomson-lab                # group name
 HOMEDIR=/home                   # home directory path
-INPUT=/opt/share/manifest/user  # user list file
-SKELDIR=/opt/etc/skel           # skel directory path
+INPUT=/data/opt/share/manifest/user  # user list file
+SKELDIR=/data/opt/etc/skel           # skel directory path
 
 add-group()
 {

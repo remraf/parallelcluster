@@ -4,7 +4,7 @@
 #
 ###
 
-PKGS=/opt/share/manifest/pkg    # package list
+PKGS=/data/opt/share/manifest/pkg    # package list
 
 while IFS= read -ra PKG
 do
