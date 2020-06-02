@@ -26,15 +26,15 @@ scaling_settings = custom
 post_install = s3://pcluster-pi/postinstall.sh
 
 [vpc default]
-vpc_id = vpc-04caee055567710ce
-master_subnet_id = subnet-0b6a8b32ff7754500
-compute_subnet_id = subnet-0974f40a438621922
+vpc_id = vpc-040bf4e1d073d9067
+master_subnet_id = subnet-0aec7c51858f97019
+compute_subnet_id = subnet-0371e88141ce1e1af
 use_public_ips = false
 additional_sg = sg-0d7f3ec1384462427
-ssh_from = 18.221.171.203/32
+ssh_from = 54.205.241.64/32
 
 [efs customfs]
-efs_fs_id = fs-cbd30fb3
+efs_fs_id = fs-b202b331
 shared_dir = data
 
 [scaling custom]
