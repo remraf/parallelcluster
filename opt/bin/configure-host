@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# description: configure master node
+#
+###
+
+## lmod
+cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
