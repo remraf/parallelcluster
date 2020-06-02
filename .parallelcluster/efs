@@ -1,5 +1,5 @@
 [aws]
-aws_region_name = us-east-2
+aws_region_name = us-east-1
 
 [global]
 cluster_template = default
@@ -10,7 +10,7 @@ sanity_check = true
 ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
 
 [cluster default]
-key_name = aws-berry-cluster
+key_name = tomson-cluster-key
 base_os = centos7
 master_instance_type = t2.micro
 compute_instance_type = t2.micro
@@ -23,7 +23,7 @@ spot_price = 0.0080
 scheduler = sge
 efs_settings = customfs
 scaling_settings = custom
-post_install = s3://pcluster-pi/postinstall.sh
+post_install = s3://tomson-pi/postinstall.sh
 
 [vpc default]
 vpc_id = vpc-040bf4e1d073d9067
