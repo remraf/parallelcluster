@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# 
+# description: batch add users on clusters
+# usage: install-user
+#
+# format of input file = <real_name>:<username>
+#              example = Frances Farmer:frances
+#
+###
+
+GID=2000                        # group id
+GROUP=tomson-lab                # group name
+HOMEDIR=/home                   # home directory path
+INPUT=/opt/share/manifest/user  # user list file
+SKELDIR=/opt/etc/skel           # skel directory path
+
+add-group()
+{
+    getent group $GROUP &> /dev/null
+    if [[ $? -ne 0 ]]
+    then
+        echo "Adding group: $GROUP"
+        groupadd -g $GID $GROUP
+    fi
+}
+
+add-user() 
+{
+    while IFS=: read -ra USER
+    do
+        GECOS="${USER[0]}"
+        USERNAME="${USER[1]}"
+        
+        echo "Adding $GECOS as $USERNAME..."
+        if [[ -d ${HOMEDIR}/${USERNAME} ]]
+        then
+            useradd -G $GROUP -c "$GECOS" -d ${HOMEDIR}/${USERNAME} $USERNAME
+        else
+            useradd -G $GROUP -c "$GECOS" -d ${HOMEDIR}/${USERNAME} \
+            -k $SKELDIR -m $USERNAME
+        fi
+    done < $INPUT
+}
+
+main()
+{
+    add-group
+    add-user
+}
+
+main

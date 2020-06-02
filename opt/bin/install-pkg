@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# description: batch add packages on clusters
+#
+###
+
+PKGS=/opt/share/manifest/pkg    # package list
+
+while IFS= read -ra PKG
+do
+    yum install -y $PKG
+done < $PKGS
