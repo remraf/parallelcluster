@@ -7,7 +7,7 @@ update_check = true
 sanity_check = true
 
 [aliases]
-ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
+ssh = ssh $USER@{MASTER_IP} {ARGS}
 
 [cluster default]
 key_name = tomson-cluster-key
@@ -18,7 +18,7 @@ initial_queue_size = 0
 max_queue_size = 3
 maintain_initial_size = false
 vpc_settings = default
-cluster_type = ondemand
+cluster_type = spot
 spot_price = 0.0080
 scheduler = sge
 ebs_settings = default
