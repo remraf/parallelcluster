@@ -7,7 +7,7 @@ update_check = true
 sanity_check = true
 
 [aliases]
-ssh = ssh $USER@{MASTER_IP} {ARGS}
+ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
 
 [cluster default]
 key_name = tomson-cluster-key
