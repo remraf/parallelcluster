@@ -1,1 +1,1 @@
-opt/bin/postinstall.sh
+../opt/bin/postinstall.sh
