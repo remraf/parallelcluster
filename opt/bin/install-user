@@ -42,16 +42,10 @@ add-user()
     done < $INPUT
 }
 
-configure-user()
-{
-    usermod -a -G wheel tomson
-}
-
 main()
 {
     add-group
     add-user
-    configure-user
 }
 
 main
