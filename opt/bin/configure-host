@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# description: configure cluster hosts
+# description: configure nodes
 #
 ###
 
