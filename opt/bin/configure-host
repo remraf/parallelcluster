@@ -4,6 +4,9 @@
 #
 ###
 
+## cron
+crontab /data/opt/share/manifest/mycron
+
 ## lmod
 cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
 
