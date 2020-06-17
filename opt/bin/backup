@@ -13,8 +13,10 @@ then
     mkdir -p /data/backup/${TODAY}
 fi
 
-rsync -vPamz --include "*/" --include="*.out" \
+rsync -vPamz --include "*/" \
+--include="*.out" \
 --include="*.xyz" \
 --include="*.gbw" \
 --include="*.hess" \
---include="*.trj" --exclude="*" $FROM $TO
+--include="*.trj" \
+--exclude="*" $FROM $TO
