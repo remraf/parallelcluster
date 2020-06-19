@@ -4,7 +4,9 @@
 # usage: install-user
 #
 # format of input file = <real_name>:<username>
-#              example = Frances Farmer:frances
+#
+# author: tony vo
+# date: 2020.05.19
 #
 ###
 
