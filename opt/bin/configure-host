@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 #
-# description: configure master node
+# description: configure nodes
 #
 ###
+
+## cron
+crontab /data/opt/share/manifest/mycron
 
 ## lmod
 cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
