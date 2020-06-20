@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# description: real-time check of job submission output file
+# description: real-time check of orca job submission output
 # usage: check-sub <sge_jobid>
 #
 # author: tony vo
