@@ -14,9 +14,9 @@ then
 fi
 
 rsync -vPamz --include "*/" \
---include="*.out" \
---include="*.xyz" \
 --include="*.gbw" \
 --include="*.hess" \
+--include="*.out" \
 --include="*.trj" \
+--include="*.xyz" \
 --exclude="*" $FROM $TO
