@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# description: real-time check of job submission output file
+# usage: check-sub <sge_jobid>
+#
+# author: tony vo
+# date: 2020.06.19
+#
+###
+
+JOB_ID=$1
+
+## Check arguments 
+if [[ $# -lt 1 ]]
+then
+    echo "Argument required: <job_id>"
+    exit 1
+fi
+
+## Determine output file
+INPUT=$(qstat -j $JOB_ID | grep job_name | cut -d: -f2 | tr -d ' ')
+FILE=${INPUT%.inp}
+NODE=$(qstat -u "*" | tail -n +3 | awk '{$1=$1}1' | grep "^$JOB_ID" | cut -d' ' -f 8 | cut -d@ -f2 | cut -d. -f1)
+OUTPUT=${FILE}.out
+SCRATCH='/scratch'
+
+## Check output file
+ssh $NODE tail -f ${SCRATCH}/${USER}/${JOB_ID}/${OUTPUT}
