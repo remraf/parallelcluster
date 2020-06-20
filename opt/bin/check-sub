@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# description: real-time check of orca submission output
+# usage: check-sub <sge_jobid>
+#
+# author: tony vo
+# date: 2020.06.19
+#
+###
+
+
