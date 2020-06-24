@@ -4,16 +4,29 @@
 #
 ###
 
+CLUSTERS=$(pcluster list | cut -d' ' -f1)
+CLUSTERIP=$(hostname -i | cut -d'.' -f4)
+
+for CLUSTER in $CLUSTERS;
+do
+    IP=$(pcluster status $CLUSTER | egrep -o '[0-9]+$')
+    if [[ $IP == $CLUSTERIP ]]
+    then
+        MYCLUSTER=$CLUSTER
+        break;
+    fi
+done
+
 SCRATCH=/scratch
 TODAY=$(date +%Y%m%d)
 FROM="/scratch/./"
-TO="/data/backup/${TODAY}"
+TO="/data/backup/${TODAY}/${MYCLUSTER}"
 
 if [[ "$(ls -A $SCRATCH)" ]]
 then
     if [[ ! -d /data/backup/${TODAY} ]]
     then
-        mkdir -p /data/backup/${TODAY}
+        mkdir -p /data/backup/${TODAY}/${MYCLUSTER}
     fi
 
     rsync -vPamz --include "*/" \
