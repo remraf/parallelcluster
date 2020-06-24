@@ -13,6 +13,7 @@ do
     if [[ $IP == $CLUSTERIP ]]
     then
         MYCLUSTER=$CLUSTER
+        break;
     fi
 done
 
