@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# description: backup intermediate computations in case of spot instance termination
+#
+###
+
+TODAY=$(date +%Y%m%d)
+FROM="/scratch/./"
+TO="/data/backup/${TODAY}"
+
+if [[ ! -d /data/backup/${TODAY} ]]
+then
+    mkdir -p /data/backup/${TODAY}
+fi
+
+rsync -vPamz --include "*/" \
+--include="*.gbw" \
+--include="*.hess" \
+--include="*.out" \
+--include="*.trj" \
+--include="*.xyz" \
+--exclude="*" $FROM $TO
