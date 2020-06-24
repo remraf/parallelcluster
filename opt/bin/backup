@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# description: backup intermediate computations in case of spot instance termination
+#
+###
+
+CLUSTERS=$(pcluster list | cut -d' ' -f1)
+CLUSTERIP=$(hostname -i | cut -d'.' -f4)
+
+for CLUSTER in $CLUSTERS;
+do
+    IP=$(pcluster status $CLUSTER | egrep -o '[0-9]+$')
+    if [[ $IP == $CLUSTERIP ]]
+    then
+        MYCLUSTER=$CLUSTER
+    fi
+done
+
+TODAY=$(date +%Y%m%d)
+FROM="/scratch/./"
+TO="/data/backup/${TODAY}/${MYCLUSTER}"
+
+if [[ ! -d /data/backup/${TODAY} ]]
+then
+    mkdir -p /data/backup/${TODAY}
+fi
+
+rsync -vPamz --include "*/" \
+--include="*.gbw" \
+--include="*.hess" \
+--include="*.out" \
+--include="*.trj" \
+--include="*.xyz" \
+--exclude="*" $FROM $TO
