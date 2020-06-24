@@ -1,3 +1,7 @@
 epel-release
 Lmod
+openmpi3
+openmpi3.i686
+openmpi3-devel
+openmpi3-devel.i686
 tmux
