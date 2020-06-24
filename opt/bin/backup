@@ -4,9 +4,22 @@
 #
 ###
 
+CLUSTERS=$(pcluster list | cut -d' ' -f1)
+CLUSTERIP=$(hostname -i | cut -d'.' -f4)
+
+for CLUSTER in $CLUSTERS;
+do
+    IP=$(pcluster status $CLUSTER | egrep -o '[0-9]+$')
+    if [[ $IP == $CLUSTERIP ]]
+    then
+        MYCLUSTER=$CLUSTER
+        break;
+    fi
+done
+
 TODAY=$(date +%Y%m%d)
 FROM="/scratch/./"
-TO="/data/backup/${TODAY}"
+TO="/data/backup/${TODAY}/${MYCLUSTER}"
 
 if [[ ! -d /data/backup/${TODAY} ]]
 then
