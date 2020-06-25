@@ -11,8 +11,7 @@ crontab /data/opt/share/manifest/mycron
 cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
 
 ## root
-SKELDIR=/data/opt/etc/skel
-cp -pr ${SKELDIR}/.{aws,parallelcluster} /root
+cp -pr /data/opt/etc/skel/.{aws,parallelcluster} /root
 
 ## sudoers
 cp /data/opt/etc/sudoers.d/sudoers_tomson /etc/sudoers.d
