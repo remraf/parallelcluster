@@ -10,7 +10,7 @@
 
 GID=2000                        # group id
 GROUP=tomson-lab                # group name
-HOMEDIR=/home                   # home directory path
+HOMEDIR=/data/home                   # home directory path
 INPUT=/data/opt/share/manifest/user  # user list file
 SKELDIR=/data/opt/etc/skel           # skel directory path
 
