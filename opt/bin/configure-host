@@ -10,5 +10,8 @@ crontab /data/opt/share/manifest/mycron
 ## lmod
 cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
 
+## root
+cp -pr /data/opt/etc/skel/.{aws,parallelcluster} /root
+
 ## sudoers
 cp /data/opt/etc/sudoers.d/sudoers_tomson /etc/sudoers.d
