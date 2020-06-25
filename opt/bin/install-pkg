@@ -2,9 +2,12 @@
 #
 # description: batch add packages on clusters
 #
+# author: tony vo
+# date: 2020.05.19
+#
 ###
 
-PKGS=/data/opt/share/manifest/pkg    # package list
+PKGS=/data/opt/share/manifest/pkg 
 
 while IFS= read -ra PKG
 do
