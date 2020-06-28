@@ -23,6 +23,7 @@ spot_price = 0.0080
 scheduler = sge
 efs_settings = customfs
 scaling_settings = custom
+shared_dir = scratch
 post_install = s3://tomson-pi/postinstall.sh
 
 [vpc default]
