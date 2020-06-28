@@ -7,14 +7,14 @@ update_check = true
 sanity_check = true
 
 [aliases]
-ssh = ssh $USER@{MASTER_IP} {ARGS}
+ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
 
 [cluster default]
 key_name = tomson-cluster-key
 base_os = centos7
 master_instance_type = t2.micro
 compute_instance_type = t2.micro
-initial_queue_size = 1
+initial_queue_size = 0
 max_queue_size = 3
 maintain_initial_size = false
 vpc_settings = default
@@ -38,4 +38,4 @@ efs_fs_id = fs-b202b331
 shared_dir = data
 
 [scaling custom]
-scaledown_idletime = 50
+scaledown_idletime = 5

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# description: configure aws parallelcluster on host
+#
+###
+
+GITDIR=$HOME/git/parallelcluster
+
+## directories
+DIRS=(
+    .parallelcluster
+    )
+for DIR in "${DIRS[@]}"; do
+    if [[ -d ${HOME}/${DIR} ]]; then
+        mv ${HOME}/${DIR}{,.dist}
+    fi
+    ln -s ${GITDIR}/${DIR} ${HOME}/${DIR}
+done
