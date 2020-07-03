@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 #
-# description: configure master node
+# description: configure nodes
 #
 ###
 
 ## cron
 crontab /data/opt/share/manifest/mycron
 
-## lmod
+## profile.d
 cp /data/opt/etc/profile.d/z01_lmod.sh /etc/profile.d
+cp /data/opt/etc/profile.d/bash.sh /etc/profile.d
 
 ## root
 cp -pr /data/opt/etc/skel/.{aws,parallelcluster} /root
