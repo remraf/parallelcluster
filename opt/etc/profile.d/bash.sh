@@ -1,0 +1,1 @@
+alias qstat="qstat -u '*'"
